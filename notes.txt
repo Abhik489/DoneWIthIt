@@ -1,0 +1,89 @@
+Pre - requesite :
+
+- javascript
+- react
+
+- Framework for buiding native apps using js.
+- native : mobile app, not web app that looks
+like mobile view.
+
+- works on ios and android 
+- developed in 2015 by facebook
+-  realised stable version in 2019
+
+
+-- two ways to create and make a react native project
+
+1. expo cli
+2. react-native cli
+
+-- expo cli is abstration over react-native
+it provides some easy ways to do complex thing
+it hides internal mess of react -native
+- like we have express in react.
+
+-- react-native cli requires to get into some
+details related to native application
+such as info related to ios and android application.
+
+-- installtion steps
+
+-- install expo globally
+
+npm install expo-cli -g
+
+-- Expo Client app from play Store - to see our app
+in actual mobile
+
+--extensions good to hv
+1. React native tools -microsoft
+2. React-native/react/redux snippets - Equimper
+3. material icon theme - philip kief
+
+-- create a project
+
+expo init myProject
+
+-- choose blanck managed work flow to get simple, js
+based react-native
+
+-- react native dont hv html elements like div, h1
+we hv to use built in components.
+
+-- ex; we have <view> that is same as div component
+and to display text we have <text> 
+
+
+--  components designed in react-native will automatically
+mapped to ios and android native code.
+
+-- To run a react native application we need native plateform
+such android or ios.
+
+-- So to run it on your PC you need native os, such as android os
+, so you run android on top of windows by creating a virtual environment
+
+-- android studio provides a way to create it, and now android os is running,
+but how can you render a mobile display in pc? for that we use emulator
+android studio also provides us emulator.
+
+-- on android studio , you have to install image/os of ur choice
+
+-- metro bundler, by bundler it means that it bundles js files into
+one.
+
+-- when we compile our code , metro bundler , bundles the js files
+and sends it to either emulator, or mobile device whichever
+u hv connected.
+
+-- to refresh the application on mobile, if we are using emulator, we use
+ctrl + n, and on actual mobile, u can get regfresh manu by shaking it or 
+from notification bar.
+
+-- and when using mobile device, the pc and mobile should be under same network.
+
+-- debugging
+1. with chrome
+- on remote debugging, by cicking on this option ,your chrome in pc will automatically open
+a 
+
