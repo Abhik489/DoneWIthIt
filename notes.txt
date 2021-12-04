@@ -87,3 +87,266 @@ from notification bar.
 - on remote debugging, by cicking on this option ,your chrome in pc will automatically open
 a 
 
+2. with visual studio
+
+-- public your application
+
+
+-- core components in react - native
+
+view
+text
+image
+button
+touchables
+Alert
+
+
+-- this are apis of react - native that we can use
+-- we need to always wrap our text inside text tag
+-- whatewer we have to display we can , put it inside 
+view.
+-- we have onPress even, that is same as click
+-- we also have onLongPress event thats like  touch and
+hold
+-- we have to specify images with <Image/> tag only
+-- here for local images
+
+we have to do like this
+
+<Image source ={require('./assets/favicon.png')}/>
+
+for any network downloaded images
+
+<Image source ={{ uri : "https://picsum.photos/200",
+                        width : 200,
+                        height : 200
+                      }}
+              blurRadius = {3}
+              fadeDuration = {1000}
+                      />
+-- it has bunch of prperties we can use.
+
+-- for each coponent react native has documentaion
+for all of its properties
+
+-- Image component doest work on onPress event
+-- so we need to use touchables there are Few
+types of it
+
+ TouchableWithoutFeedback - normal
+ TouchableOpacity - makes reduce opacity effect
+ TouchableHighlight - makes dark for a moment
+
+ -- these are cross touchables, we also have
+ native components that are related to android
+ or ios only.
+
+ -- buttons 
+  <Button title ="Click"
+              onPress = {()=>console.log("button Clicked")
+ -- Alert
+
+ in small letters we have 
+
+ alert();
+
+ that makes a popup window
+
+ <Button title ="Click Alert"
+              onPress = {()=>alert("button Clicked")}
+              />
+-- but we can have much functionalities in it
+--  react-native provides api for that
+
+-- Alert();
+
+ <Button title ="Click Alert API"
+      onPress = {()=>Alert.alert("Surway","Are you men?",[ 
+        {text : 'Yes', onPress : ()=>console.log("yes")},
+        {text : 'No', onPress : ()=>console.log("yes")}
+      ])
+      }
+-- here fist is title, then messege and array of buttons
+
+--  we also have propmt in Alert api
+<Button title ="Click Alert API"
+      onPress = {()=>Alert.alert("Surway","Are you men?", text => console.log("test"))
+      }/>
+
+-- propmt , propmts user to add a text in a box
+
+-- for styling components we use style property, we pass array of properties
+
+style = {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+   
+  }
+
+that looks like css, but its not, its just js variables
+- why we use  StyleSheet api and
+
+const styles =  StyleSheet.create({
+     container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+   
+  },
+  textContainer : {
+    backgroundColor: 'black',
+    color : 'white',
+    padding : 10,
+    borderRadius : 15,
+    marginBottom : 20
+  }
+});
+
+use it like this,
+StyleSheet api validates , it any propery name is misplled,
+or some error.
+
+-- How to pass multiple styles?
+
+style = [ styles.container, styles.textContainer]
+
+executed from left to right, in case of same property appliied by both
+right one will override left one.
+
+-- plateform dependent code
+
+Plateform
+
+is react-native api, that enabales us to write
+a code for specific plateform, like for android
+only.
+
+style = {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding : Plateform.OS === "android" ? 20 : 0
+  }
+
+
+-- StatusBar
+it gives access to top bar of mobile, where we see
+our network signals..,
+
+we can get height of that
+
+StatusBar.currentHeight
+
+so above code can be improoved like..
+
+padding : Plateform.OS === "android" ? 
+                            StatusBar.currentHeight :
+                             0
+
+
+-- Density - independent  - pixels, dip
+
+Physical Pixels = Dips * Scale Factor,
+
+mobile uses a abstract unit for pixel, they represent
+one unit of screen
+
+ex : 320 * 850
+
+here 1 unit equals = 2 physical pixels
+
+so pixel u define are actualy units
+
+actual physical pixel are given by = dip * scale Factor
+
+, scale factor is differnt for various devise
+so to keep it same for all devise , we use 
+percentage.
+
+
+width : "50%"
+
+-- Dimensions api
+
+Dimensions.get('window');
+// return obj that has size of app window
+
+Dimensions.get('screen');
+// return obj that has size of entire screen
+
+
+-------------------------------------------
+
+Detecting orientation changes
+
+-- things doest work same as we rotate our
+mobile,
+so we can modify app.json
+
+"expo": {
+    "name": "DoneWithIt",
+    "slug": "DoneWithIt",
+    "version": "1.0.0",
+    ------------------------
+    "orientation": "default",
+    -------------------------
+    },
+
+-- we can set it to potrait, landscape, and 
+to support both default
+
+---------------------------------------------
+
+we have hooks library for using hooks like react.
+hooks are just function and by convetion it starts
+from "use"
+
+import { useDimensions } from '@react-native-community/hooks'
+
+Dimensions api has a limitaion, so to get the updated Dimensions on changes
+immediately we use useDimensionss
+  console.log(useDeviceOrientation());
+
+Object {
+  "landscape": false,
+  "portrait": true,  
+}
+
+3--------------------------------------------------
+
+Flex 
+
+similar to flex in css,
+by default it lays the components in vertical
+
+flex : 1 , takes entire available space
+
+flexDirection
+justifyContent
+alignItems
+
+we have 
+
+alignSelf , that applies to child of flex parent
+
+flexwrap
+
+alignContent
+
+flexBasis 
+flexgrow
+flexshrink
+
+-- position : relative , by default
+
+-- code snippets shortcuts
+
+rsf - react native stateless functional components
+rnss - react native style sheet
+
+-- expo has icon pack inbuilt
